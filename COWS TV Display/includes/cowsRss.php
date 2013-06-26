@@ -71,10 +71,10 @@ class cowsRss	{
 	 * @return array
 	 */
 	function getData($accessTime)	{
-		$lastTime = file_get_contents("./cache/last.txt");
-		if (strtotime($accessTime) < strtotime("+15 Minutes",$lastTime) && $lastTime != "")	{
-			return unserialize(file_get_contents("./cache/array.txt"));
-		}
+		//$lastTime = file_get_contents("./cache/last.txt");
+		//if (strtotime($accessTime) < strtotime("+15 Minutes",$lastTime) && $lastTime != "")	{
+		//	return unserialize(file_get_contents("./cache/array.txt"));
+		//}
 		$items = $this->feed->get_items();
 		//$i is -1 because we increment it and the begining of every foreach iteration. We want it to start at 0
 		$i = -1;
@@ -103,7 +103,7 @@ class cowsRss	{
 				$tok = strtok("\n");
 			}
 		}
-		$this->cache($out);
+		//$this->cache($out);
 		return $out;
 	}
 	/**
